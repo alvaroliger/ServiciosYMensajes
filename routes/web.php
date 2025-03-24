@@ -29,3 +29,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/conversations', [ConversationController::class, 'store']);
     Route::post('/messages', [MessageController::class, 'store']);
 });
+
+Route::middleware(['auth'])->group(function () {
+    Route::resource('services', ServiceController::class);
+});

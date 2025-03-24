@@ -46,15 +46,6 @@ class ServiceSeeder extends Seeder
                 'category_id' => 5,
                 'status' => 'activo',
             ],
-            [
-                'title' => 'Explorando Machu Picchu',
-                'description' => 'Una expedición única a la ciudad perdida de los incas...',
-                'user_id' => 1,
-                'price' => 400.00,
-                'duration' => 8,
-                'category_id' => 1,
-                'status' => 'activo',
-            ],
         ];
 
         foreach ($services as $service) {
