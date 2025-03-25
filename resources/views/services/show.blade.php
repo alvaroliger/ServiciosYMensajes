@@ -7,7 +7,7 @@
         {{ $service->title }}
     </h1>
 
-    {{-- Imagen del servicio --}}
+    {{-- Imagen del servicio
     @if ($service->image_path)
         <img
             src="{{ asset('storage/' . $service->image_path) }}"
@@ -15,7 +15,7 @@
             class="w-full h-auto rounded shadow-sm"
         >
     @endif
-
+--}}
     {{-- Descripción y datos del servicio --}}
     <div class="space-y-1">
         <p class="text-lg text-gray-700">
