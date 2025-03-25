@@ -1,50 +1,43 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <h2>{{ $service->title }}</h2>
-    <p>{{ $service->description }}</p>
+<div class="max-w-4xl mx-auto px-6 py-8 bg-white rounded shadow mt-8 space-y-6">
 
-    <hr>
+    <h1 class="text-3xl font-bold text-gray-800">
+        {{ $service->title }}
+    </h1>
 
-    <h4>Foro del Servicio</h4>
+    {{-- Imagen del servicio --}}
+    @if ($service->image_path)
+        <img
+            src="{{ asset('storage/' . $service->image_path) }}"
+            alt="Imagen del servicio"
+            class="w-full h-auto rounded shadow-sm"
+        >
+    @endif
 
-    @extends('layouts.app')
+    {{-- Descripción y datos del servicio --}}
+    <div class="space-y-1">
+        <p class="text-lg text-gray-700">
+            {{ $service->description }}
+        </p>
+        <p class="text-sm text-gray-600">
+            <strong>Duración:</strong> {{ $service->duration }} días
+        </p>
+        <p class="text-sm text-gray-600">
+            <strong>Precio:</strong> {{ $service->price }}€
+        </p>
+    </div>
 
-@section('content')
-<div class="max-w-4xl mx-auto p-6 bg-white rounded shadow">
-    <h1 class="text-3xl font-bold mb-4">{{ $service->title }}</h1>
-    <img src="{{ asset('storage/' . $service->image_path) }}" alt="Imagen del servicio" class="mb-4 w-full rounded">
+    <hr class="border-gray-200">
 
-    <p class="text-lg text-gray-700">{{ $service->description }}</p>
-    <p class="mt-4 text-sm text-gray-500">Duración: {{ $service->duration }} días</p>
-    <p class="text-sm text-gray-500">Precio: {{ $service->price }}€</p>
+    {{-- Mensajes --}}
+    <div>
+        <h2 class="text-xl font-semibold text-gray-800 mb-2">
+            Mensajes
+        </h2>
+        @livewire('chat.messages', ['serviceId' => $service->id])
+    </div>
 
-    <hr class="my-6">
-
-    {{-- Aquí se podría conectar con el sistema de mensajería --}}
-    <h2 class="text-xl font-semibold mb-2">Mensajes</h2>
-    @livewire('messages', ['serviceId' => $service->id]) {{-- Si usas Livewire --}}
-</div>
-@endsection
-
-
-    @foreach($messages as $message)
-        <div class="mb-2 p-2 border">
-            <strong>{{ $message->user->name }}</strong>
-            <p>{{ $message->body }}</p>
-        </div>
-    @endforeach
-
-    {{ $messages->links() }}
-
-    @auth
-    <form method="POST" action="{{ route('messages.store') }}">
-        @csrf
-        <input type="hidden" name="service_id" value="{{ $service->id }}">
-        <textarea name="body" class="form-control my-2" rows="3" placeholder="Escribe tu mensaje..."></textarea>
-        <button class="btn btn-primary">Enviar</button>
-    </form>
-    @endauth
 </div>
 @endsection

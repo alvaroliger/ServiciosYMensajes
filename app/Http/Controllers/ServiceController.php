@@ -2,12 +2,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Service;
-use App\Http\Controllers\Request;
+use Illuminate\Http\Request;
 
 class ServiceController extends Controller
 {
     public function index()
-    {
+    {   // TODO
         $services = Service::with(['user', 'category'])->where('status', 'activo')->get();
         return view('services.index', compact('services'));
     }
@@ -34,7 +34,7 @@ class ServiceController extends Controller
 
         Service::create($validatedData);
 
-        return redirect()->route('services.index')
+        return redirect()->route('services.create')
                          ->with('success', 'Servicio creado exitosamente.');
     }
 
@@ -48,7 +48,7 @@ class ServiceController extends Controller
 
         $service->update($validatedData);
 
-        return redirect()->route('services.index')
+        return redirect()->route('services.edit') // TODO
                          ->with('success', 'Servicio actualizado exitosamente.');
     }
 
@@ -56,7 +56,7 @@ class ServiceController extends Controller
     {
         $service->delete();
 
-        return redirect()->route('services.index')
+        return redirect()->route('services.index') // TODO
                          ->with('success', 'Servicio eliminado exitosamente.');
     }
 }

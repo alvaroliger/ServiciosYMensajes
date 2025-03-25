@@ -18,6 +18,7 @@ return new class extends Migration
             $table->text('body'); // Contenido del mensaje
             $table->timestamp('read_at')->nullable(); // Marca de leído
             $table->timestamps();
+            $table->foreignId('service_id')->constrained()->onDelete('cascade');
         });
     }
 
