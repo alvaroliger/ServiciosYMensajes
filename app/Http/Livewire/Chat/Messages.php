@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Http\Livewire\Chat;
+namespace App\Http\Livewire\Chat;
 
 use Livewire\Component;
 
@@ -15,7 +15,6 @@ class Messages extends Component
 
     public function render()
     {
-        // Asegúrate de que este archivo existe: resources/views/livewire/chat/messages.blade.php
         return view('livewire.chat.messages');
     }
 }

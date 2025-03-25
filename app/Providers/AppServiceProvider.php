@@ -22,5 +22,6 @@ class AppServiceProvider extends ServiceProvider
         if ($this->app->environment('production')) {
             \URL::forceScheme('https');
         }
+        \Livewire::component('chat.messages', \App\Http\Livewire\Chat\Messages::class);
     }
 }
