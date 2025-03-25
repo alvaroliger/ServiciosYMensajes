@@ -16,7 +16,7 @@
             <!-- BOTÓN PARA IR A /services -->
             <a href="{{ route('services.index') }}"
                class="mt-6 px-6 py-3 bg-blue-500 text-black font-bold rounded-md hover:bg-blue-700 transition">
-                ¿Quieres viajar al mejor precio? ¡Pulsa aquí!
+                ¿Quieres viajar al mejor precio? ¡Pulsa aquíhhhhh!
             </a>
         </div>
     </div>
