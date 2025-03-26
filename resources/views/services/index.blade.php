@@ -4,7 +4,7 @@
         {{-- Contenedor principal a pantalla completa con scroll vertical --}}
         <div
             class="flex-1 relative h-screen overflow-y-auto bg-cover bg-no-repeat"
-            style="background-image: url('{{ asset('images/montanias.jpg') }}');"
+            style="background-image: url('{{ asset('images/fondo/montanias.jpg') }}');"
         >
             <!-- Overlay para oscurecer la imagen -->
             <div class="absolute inset-0 bg-black bg-opacity-50"></div>
@@ -17,11 +17,11 @@
 
                 @php
                     $images = [
-                        'paris.jpg',
-                        'china.jpg',
-                        'serengeti.jpg',
-                        'toscana.jpg',
-                        'machupicchu.jpg',
+                        'paris/paris.jpg',
+                        'china/china.jpg',
+                        'serengeti/serengeti.jpg',
+                        'toscana/toscana.jpg',
+                        'machupicchu/machupicchu.jpg',
                     ];
                 @endphp
 

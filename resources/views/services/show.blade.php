@@ -1,40 +1,27 @@
 @section('content')
-<div class="max-w-4xl mx-auto px-6 py-8 bg-white rounded shadow mt-8 space-y-6">
+<div class="max-w-4xl mx-auto p-6 bg-white shadow rounded-xl">
 
-    <h1 class="text-3xl font-bold text-gray-800">
-        {{ $service->title }}
-    </h1>
+    <h1 class="text-3xl font-bold mb-2">{{ $service->title }}</h1>
+    <p class="text-gray-600 mb-4">{{ $service->category->name ?? 'Sin categoría' }}</p>
+    <p class="mb-4">{{ $service->description }}</p>
+    <p class="text-xl font-semibold text-green-600 mb-4">Precio: {{ $service->price }} €</p>
 
-    {{-- Imagen del servicio
-    @if ($service->image_path)
-        <img
-            src="{{ asset('storage/' . $service->image_path) }}"
-            alt="Imagen del servicio"
-            class="w-full h-auto rounded shadow-sm"
-        >
-    @endif
---}}
-    {{-- Descripción y datos del servicio --}}
-    <div class="space-y-1">
-        <p class="text-lg text-gray-700">
-            {{ $service->description }}
-        </p>
-        <p class="text-sm text-gray-600">
-            <strong>Duración:</strong> {{ $service->duration }} días
-        </p>
-        <p class="text-sm text-gray-600">
-            <strong>Precio:</strong> {{ $service->price }}€
-        </p>
+    <!-- Galería de imágenes -->
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
+        @foreach($service->images as $image)
+            <img src="{{ asset('storage/' . $image->image_path) }}" class="rounded-lg shadow" alt="Imagen del viaje">
+        @endforeach
     </div>
 
-    <hr class="border-gray-200">
-
-    {{-- Mensajes --}}
-    <div>
-        <h2 class="text-xl font-semibold text-gray-800 mb-2">
-            Mensajes
-        </h2>
-        @livewire('chat.messages', ['serviceId' => $service->id])
+    <!-- Foro de comentarios -->
+    <div class="mt-10">
+        <h2 class="text-2xl font-bold mb-4">Comentarios</h2>
+        @foreach($service->messages as $message)
+            <div class="mb-3 border-b pb-2">
+                <p class="text-sm text-gray-500">{{ $message->user->name }} dijo:</p>
+                <p>{{ $message->content }}</p>
+            </div>
+        @endforeach
     </div>
 
 </div>

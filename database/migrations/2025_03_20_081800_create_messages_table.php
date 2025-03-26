@@ -15,8 +15,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('conversation_id')->constrained()->onDelete('cascade'); // Relación con conversación
             $table->foreignId('user_id')->constrained()->onDelete('cascade'); // Usuario que envía el mensaje
-            $table->text('body'); // Contenido del mensaje
-            $table->timestamp('read_at')->nullable(); // Marca de leído
+            $table->text('body');
+            $table->timestamp('read_at')->nullable();
+            $table->text('content');
             $table->timestamps();
             $table->foreignId('service_id')->constrained()->onDelete('cascade');
         });

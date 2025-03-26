@@ -11,17 +11,17 @@ class MessageController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'conversation_id' => 'required|exists:conversations,id',
-            'body' => 'required|string',
+            'body' => 'required|string|max:1000',
+            'service_id' => 'required|exists:services,id',
         ]);
 
-        $message = Message::create([
-            'conversation_id' => $request->conversation_id,
+        \App\Models\Message::create([
             'user_id' => auth()->id(),
+            'service_id' => $request->service_id,
             'body' => $request->body,
         ]);
 
-        return response()->json($message, 201);
+        return redirect($request->input('redirect_to', '/'))->with('success', 'Comentario publicado con éxito.');
     }
 
     public function getMessages(Conversation $conversation)

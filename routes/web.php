@@ -15,19 +15,20 @@ Route::middleware(['auth'])->get('/dashboard', function () {
     return view('dashboard', compact('services'));
 })->name('dashboard');
 
-// LISTADO DE SERVICIOS (única ruta válida para /servicios)
+// LISTADO DE SERVICIOS
 Route::get('/services', [ServiceController::class, 'index'])->name('services.index');
 
 // DETALLE DE SERVICIO
 Route::get('/services/{service}', [ServiceController::class, 'show'])->name('services.show');
 
-// MENSAJES EN UN SERVICIO (FORO)
-Route::post('/messages', [MessageController::class, 'store'])->name('messages.store');
+// RUTA PARA COMENTARIOS EN EL MISMO SERVICIO
+Route::post('/services/{id}/comentar', [ServiceController::class, 'comentar'])->name('services.comentar');
 
+// (Puedes eliminar esta si ya no usas MessageController directamente)
+Route::post('/messages', [MessageController::class, 'store'])->name('messages.store');
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/conversations', [ConversationController::class, 'store']);
-    Route::post('/messages', [MessageController::class, 'store']);
 });
 
 Route::middleware(['auth'])->group(function () {

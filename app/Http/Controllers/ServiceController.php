@@ -12,11 +12,47 @@ class ServiceController extends Controller
         return view('services.index', compact('services'));
     }
 
-    public function show(Service $service)
+    public function comentar(Request $request, $id)
     {
-        $messages = $service->messages()->with('user')->latest()->paginate(15);
-        return view('services.show', compact('service', 'messages'));
+        $request->validate([
+            'body' => 'required|string|max:1000',
+        ]);
+
+        \App\Models\Message::create([
+            'user_id' => auth()->id(),
+            'service_id' => $id,
+            'body' => $request->body,
+            'conversation_id' => null
+        ]);
+
+        return redirect()->route('services.show', $id)
+                         ->with('success', 'Comentario publicado con éxito.');
     }
+
+
+
+    public function show($id)
+    {
+        $service = Service::with(['messages.user', 'user', 'category'])->findOrFail($id);
+
+        // Redirigir a vistas personalizadas según el ID
+        switch ($id) {
+            case 1:
+                return view('services.viajes.paris', compact('service'));
+            case 2:
+                return view('services.viajes.china', compact('service'));
+            case 3:
+                return view('services.viajes.serengeti', compact('service'));
+            case 4:
+                return view('services.viajes.italia', compact('service'));
+            case 5:
+                return view('services.viajes.machupicchu', compact('service'));
+            default:
+                return view('services.show', compact('service'));
+        }
+    }
+
+
 
     public function edit(Service $service)
     {

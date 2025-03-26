@@ -19,9 +19,15 @@ class Service extends Model
     ];
 
     public function conversations()
-{
-    return $this->hasMany(Conversation::class);
-}
+    {
+        return $this->hasMany(Conversation::class);
+    }
+
+    public function images()
+    {
+        return $this->hasMany(ServiceImage::class);
+    }
+
 
 
     public function user()
@@ -35,8 +41,8 @@ class Service extends Model
     }
 
     public function messages()
-{
-    return $this->hasMany(Message::class);
-}
+    {
+        return $this->hasMany(Message::class);
+    }
 
 }

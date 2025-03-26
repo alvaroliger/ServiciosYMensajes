@@ -7,8 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Message extends Model
 {
-    /** @use HasFactory<\Database\Factories\MessageFactory> */
     use HasFactory;
+
+    protected $fillable = [
+        'user_id',
+        'service_id',
+        'body',
+        'conversation_id',
+    ];
 
     public function user()
     {
@@ -24,9 +30,9 @@ class Message extends Model
     {
         return $this->belongsTo(Conversation::class);
     }
+
     public function attachments()
     {
         return $this->hasMany(Attachment::class);
     }
-
 }
