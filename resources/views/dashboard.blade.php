@@ -1,4 +1,3 @@
-
 <x-app-layout>
     <div class="h-screen flex flex-col items-center justify-center from-blue-500 to-indigo-600 text-white px-4">
 

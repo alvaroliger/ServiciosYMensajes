@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class ServiceController extends Controller
 {
     public function index()
-    {   // TODO
+    {
         $services = Service::with(['user', 'category'])->where('status', 'activo')->get();
         return view('services.index', compact('services'));
     }
@@ -34,8 +34,6 @@ class ServiceController extends Controller
     public function show($id)
     {
         $service = Service::with(['messages.user', 'user', 'category'])->findOrFail($id);
-
-        // Redirigir a vistas personalizadas según el ID
         switch ($id) {
             case 1:
                 return view('services.viajes.paris', compact('service'));
@@ -100,7 +98,7 @@ class ServiceController extends Controller
 
         $service->update($validatedData);
 
-        return redirect()->route('services.edit') // TODO
+        return redirect()->route('services.edit')
             ->with('success', 'Servicio actualizado exitosamente.');
     }
 
@@ -108,7 +106,7 @@ class ServiceController extends Controller
     {
         $service->delete();
 
-        return redirect()->route('services.index') // TODO
+        return redirect()->route('services.index')
             ->with('success', 'Servicio eliminado exitosamente.');
     }
 }
