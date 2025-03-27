@@ -13,11 +13,11 @@
     <!-- Carrusel -->
     <div x-data="{ current: 1 }" class="max-w-3xl mx-auto mb-10 space-y-4">
         <div class="w-full h-64 bg-gray-200 rounded-md overflow-hidden">
-            <img x-show="current === 1" src="/images/machupicchu/machupicchu1.jpg" class="w-full h-full object-cover" />
-            <img x-show="current === 2" src="/images/machupicchu/machupicchu2.jpg" class="w-full h-full object-cover" />
-            <img x-show="current === 3" src="/images/machupicchu/machupicchu3.jpg" class="w-full h-full object-cover" />
-            <img x-show="current === 4" src="/images/machupicchu/machupicchu4.jpg" class="w-full h-full object-cover" />
-            <img x-show="current === 5" src="/images/machupicchu/machupicchu5.jpg" class="w-full h-full object-cover" />
+            <img x-show="current === 1" src="/images/egipto/egipto1.jpg" class="w-full h-full object-cover" />
+            <img x-show="current === 2" src="/images/egipto/egipto2.jpg" class="w-full h-full object-cover" />
+            <img x-show="current === 3" src="/images/egipto/egipto3.jpg" class="w-full h-full object-cover" />
+            <img x-show="current === 4" src="/images/egipto/egipto4.jpg" class="w-full h-full object-cover" />
+            <img x-show="current === 5" src="/images/egipto/egipto5.jpg" class="w-full h-full object-cover" />
         </div>
 
         <div class="flex justify-between">

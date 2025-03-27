@@ -10,14 +10,14 @@
         <p class="text-gray-600">Descubre un destino inolvidable con nosotros.</p>
     </div>
 
-    <!-- Carrusel -->
+    <!-- Carrusel básico con Alpine.js -->
     <div x-data="{ current: 1 }" class="max-w-3xl mx-auto mb-10 space-y-4">
         <div class="w-full h-64 bg-gray-200 rounded-md overflow-hidden">
-            <img x-show="current === 1" src="/images/machupicchu/machupicchu1.jpg" class="w-full h-full object-cover" />
-            <img x-show="current === 2" src="/images/machupicchu/machupicchu2.jpg" class="w-full h-full object-cover" />
-            <img x-show="current === 3" src="/images/machupicchu/machupicchu3.jpg" class="w-full h-full object-cover" />
-            <img x-show="current === 4" src="/images/machupicchu/machupicchu4.jpg" class="w-full h-full object-cover" />
-            <img x-show="current === 5" src="/images/machupicchu/machupicchu5.jpg" class="w-full h-full object-cover" />
+            <img x-show="current === 1" src="/images/argentina/argentina1.jpg" class="w-full h-full object-cover" />
+            <img x-show="current === 2" src="/images/argentina/argentina2.jpg" class="w-full h-full object-cover" />
+            <img x-show="current === 3" src="/images/argentina/argentina3.jpg" class="w-full h-full object-cover" />
+            <img x-show="current === 4" src="/images/argentina/argentina4.jpg" class="w-full h-full object-cover" />
+            <img x-show="current === 5" src="/images/argentina/argentina5.jpg" class="w-full h-full object-cover" />
         </div>
 
         <div class="flex justify-between">
@@ -40,7 +40,7 @@
         </div>
     </div>
 
-    <!-- Detalles -->
+    <!-- Detalles del servicio -->
     <div class="space-y-3 text-gray-700 text-base sm:text-lg mb-12">
         <p><span class="font-semibold">Descripción:</span> {{ $service->description }}</p>
         <p><span class="font-semibold">Precio:</span> {{ $service->price }} €</p>
