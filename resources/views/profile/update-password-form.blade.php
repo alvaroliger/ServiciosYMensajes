@@ -1,39 +1,67 @@
-<x-form-section submit="updatePassword">
-    <x-slot name="title">
-        {{ __('Update Password') }}
-    </x-slot>
+<!-- Fondo semitransparente sobre imagen de fondo -->
+<div class="p-6 bg-white/70 rounded shadow-md">
 
-    <x-slot name="description">
-        {{ __('Ensure your account is using a long, random password to stay secure.') }}
-    </x-slot>
+    <x-form-section submit="updatePassword">
+        <x-slot name="title">
+            <span class="text-white">Actualizar contraseña</span>
+        </x-slot>
 
-    <x-slot name="form">
-        <div class="col-span-6 sm:col-span-4">
-            <x-label for="current_password" value="{{ __('Current Password') }}" />
-            <x-input id="current_password" type="password" class="mt-1 block w-full" wire:model="state.current_password" autocomplete="current-password" />
-            <x-input-error for="current_password" class="mt-2" />
-        </div>
+        <x-slot name="description">
+            <span class="text-white">
+                Asegúrate de que tu cuenta esté utilizando una contraseña larga y aleatoria para mantener la seguridad.
+            </span>
+        </x-slot>
 
-        <div class="col-span-6 sm:col-span-4">
-            <x-label for="password" value="{{ __('New Password') }}" />
-            <x-input id="password" type="password" class="mt-1 block w-full" wire:model="state.password" autocomplete="new-password" />
-            <x-input-error for="password" class="mt-2" />
-        </div>
+        <x-slot name="form">
+            <!-- Contraseña actual -->
+            <div class="col-span-6 sm:col-span-4">
+                <x-label for="current_password" value="Contraseña actual" />
+                <x-input
+                    id="current_password"
+                    type="password"
+                    class="mt-1 block w-full"
+                    wire:model="state.current_password"
+                    autocomplete="current-password"
+                />
+                <x-input-error for="current_password" class="mt-2" />
+            </div>
 
-        <div class="col-span-6 sm:col-span-4">
-            <x-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
-            <x-input id="password_confirmation" type="password" class="mt-1 block w-full" wire:model="state.password_confirmation" autocomplete="new-password" />
-            <x-input-error for="password_confirmation" class="mt-2" />
-        </div>
-    </x-slot>
+            <!-- Nueva contraseña -->
+            <div class="col-span-6 sm:col-span-4">
+                <x-label for="password" value="Nueva contraseña" />
+                <x-input
+                    id="password"
+                    type="password"
+                    class="mt-1 block w-full"
+                    wire:model="state.password"
+                    autocomplete="new-password"
+                />
+                <x-input-error for="password" class="mt-2" />
+            </div>
 
-    <x-slot name="actions">
-        <x-action-message class="me-3" on="saved">
-            {{ __('Saved.') }}
-        </x-action-message>
+            <!-- Confirmar contraseña -->
+            <div class="col-span-6 sm:col-span-4">
+                <x-label for="password_confirmation" value="Confirmar contraseña" />
+                <x-input
+                    id="password_confirmation"
+                    type="password"
+                    class="mt-1 block w-full"
+                    wire:model="state.password_confirmation"
+                    autocomplete="new-password"
+                />
+                <x-input-error for="password_confirmation" class="mt-2" />
+            </div>
+        </x-slot>
 
-        <x-button>
-            {{ __('Save') }}
-        </x-button>
-    </x-slot>
-</x-form-section>
+        <x-slot name="actions">
+            <x-action-message class="me-3" on="saved">
+                Guardado.
+            </x-action-message>
+
+            <x-button>
+                Guardar
+            </x-button>
+        </x-slot>
+    </x-form-section>
+
+</div>
