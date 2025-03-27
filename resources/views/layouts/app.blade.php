@@ -17,7 +17,8 @@
         <!-- Styles -->
         @livewireStyles
     </head>
-    <body class="font-sans antialiased relative w-screen h-screen overflow-hidden">
+    <!-- Quitamos h-screen y overflow-hidden para permitir que la página crezca y tenga scroll -->
+    <body class="font-sans antialiased relative min-h-screen">
         <x-banner />
 
         <!-- Imagen de fondo a pantalla completa -->
@@ -25,19 +26,19 @@
             class="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style="background-image: url('{{ asset('images/paris/paris.jpg') }}');"
         >
-            <!-- Overlay oscuro (opcional) -->
-            <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+            <!-- Overlay semitransparente para oscurecer ligeramente la imagen (opcional) -->
+            <div class="absolute inset-0 bg-black bg-opacity-30"></div>
         </div>
 
         <!-- Contenedor principal, por encima del fondo (z-10) -->
-        <div class="relative z-10 w-full h-full flex flex-col">
+        <div class="relative z-10 w-full min-h-screen flex flex-col">
 
             <!-- Barra de navegación Jetstream -->
             @livewire('navigation-menu')
 
-            <!-- Encabezado de página (si lo usas) -->
+            <!-- Encabezado de página (opcional) -->
             @if (isset($header))
-                <!-- Si quieres que sea transparente, quita bg-white y shadow -->
+                <!-- Si quieres un encabezado transparente, quita bg-white y shadow -->
                 <header class="bg-white shadow">
                     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                         {{ $header }}
@@ -45,11 +46,10 @@
                 </header>
             @endif
 
-            <!-- Contenido principal -->
+            <!-- Contenido principal (ocupa todo el espacio disponible) -->
             <main class="flex-grow">
                 {{ $slot }}
             </main>
-
         </div>
 
         @stack('modals')

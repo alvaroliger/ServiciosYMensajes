@@ -1,5 +1,6 @@
+
 <x-app-layout>
-    <div class="h-screen flex flex-col items-center justify-center bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-4">
+    <div class="h-screen flex flex-col items-center justify-center from-blue-500 to-indigo-600 text-white px-4">
 
         <h1 class="text-4xl font-bold mb-4">
             Bienvenido a tu Dashboard
