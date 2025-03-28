@@ -3,11 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Message;
+use App\Models\Service;
 use App\Models\Conversation;
 
 class MessageController extends Controller
 {
+
+    public function show(Service $service)
+{
+    return view('services.show', compact('service'));
+}
+
     public function store(Request $request)
     {
         $request->validate([

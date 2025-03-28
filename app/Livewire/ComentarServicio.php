@@ -4,8 +4,6 @@ namespace App\Livewire;
 
 use Livewire\Component;
 use App\Models\Service;
-use App\Models\Message;
-use Illuminate\Support\Facades\Auth;
 
 class ComentarServicio extends Component
 {
@@ -24,9 +22,11 @@ class ComentarServicio extends Component
             'body' => $this->body,
         ]);
 
-        $this->body = '';
+        $this->reset('body');
+        $this->service->load('messages.user');
 
-        $this->service->refresh();
+        $this->dispatch('$refresh');
+        $this->dispatch('scrollToBottom');
     }
 
     public function render()

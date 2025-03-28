@@ -20,6 +20,12 @@ class Messages extends Component
         return $this->belongsTo(Service::class);
     }
 
+    public function messages()
+{
+    return $this->hasMany(Messages::class);
+}
+
+
     public function user()
     {
         return $this->belongsTo(User::class);
