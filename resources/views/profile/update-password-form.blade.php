@@ -3,11 +3,11 @@
 
     <x-form-section submit="updatePassword">
         <x-slot name="title">
-            <span class="text-white">Actualizar contraseña</span>
+            <span class="text-black">Actualizar contraseña</span>
         </x-slot>
 
         <x-slot name="description">
-            <span class="text-white">
+            <span class="text-black">
                 Asegúrate de que tu cuenta esté utilizando una contraseña larga y aleatoria para mantener la seguridad.
             </span>
         </x-slot>

@@ -3,11 +3,11 @@
 
     <x-action-section>
         <x-slot name="title">
-            <span class="text-white">Eliminar cuenta</span>
+            <span class="text-black">Eliminar cuenta</span>
         </x-slot>
 
         <x-slot name="description">
-            <span class="text-white">Elimina tu cuenta de forma permanente.</span>
+            <span class="text-black">Elimina tu cuenta de forma permanente.</span>
         </x-slot>
 
         <x-slot name="content">

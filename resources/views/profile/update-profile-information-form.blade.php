@@ -3,11 +3,11 @@
 
     <x-form-section submit="updateProfileInformation">
         <x-slot name="title">
-            <span class="text-white">Información del perfil</span>
+            <span class="text-black">Información del perfil</span>
         </x-slot>
 
         <x-slot name="description">
-            <span class="text-white">Actualiza la información de tu perfil y tu dirección de correo electrónico.</span>
+            <span class="text-black">Actualiza la información de tu perfil y tu dirección de correo electrónico.</span>
         </x-slot>
 
         <x-slot name="form">

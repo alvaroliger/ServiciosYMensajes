@@ -3,11 +3,11 @@
 
     <x-action-section>
         <x-slot name="title">
-            <span class="text-white">Autenticación en dos pasos</span>
+            <span class="text-black">Autenticación en dos pasos</span>
         </x-slot>
 
         <x-slot name="description">
-            <span class="text-white">Añade seguridad adicional a tu cuenta utilizando la autenticación en dos pasos.</span>
+            <span class="text-black">Añade seguridad adicional a tu cuenta utilizando la autenticación en dos pasos.</span>
         </x-slot>
 
         <x-slot name="content">
@@ -22,7 +22,7 @@
                     No has activado la autenticación en dos pasos.
                 @endif
             </h3>
-            
+
             <div class="mt-3 max-w-xl text-sm text-gray-700">
                 <p>
                     Al activar la autenticación en dos pasos, se te pedirá un token seguro y aleatorio durante el inicio de sesión. Puedes obtener este token desde la app Google Authenticator de tu teléfono.

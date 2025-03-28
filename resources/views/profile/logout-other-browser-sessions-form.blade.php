@@ -3,11 +3,11 @@
 
     <x-action-section>
         <x-slot name="title">
-            <span class="text-white">Sesiones del navegador</span>
+            <span class="text-black">Sesiones del navegador</span>
         </x-slot>
 
         <x-slot name="description">
-            <span class="text-white">Administra y cierra tus sesiones activas en otros navegadores y dispositivos.</span>
+            <span class="text-black">Administra y cierra tus sesiones activas en otros navegadores y dispositivos.</span>
         </x-slot>
 
         <x-slot name="content">

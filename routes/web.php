@@ -22,7 +22,7 @@ Route::get('/services', [ServiceController::class, 'index'])->name('services.ind
 Route::get('/services/{service}', [ServiceController::class, 'show'])->name('services.show');
 
 // RUTA PARA COMENTARIOS EN EL MISMO SERVICIO
-Route::post('/services/{id}', [ServiceController::class, 'comentar'])->name('services.comentar');
+//Route::post('/services/{id}', [ServiceController::class, 'comentar'])->name('services.comentar');
 
 // (Puedes eliminar esta si ya no usas MessageController directamente)
 Route::post('/messages', [MessageController::class, 'store'])->name('messages.store');
