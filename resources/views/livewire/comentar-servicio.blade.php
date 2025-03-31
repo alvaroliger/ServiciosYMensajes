@@ -1,5 +1,8 @@
-<div x-data="{ showAll: false }" wire:ignore.self>
+<div x-data="{ showAll: false }">
     <h2 class="text-2xl font-bold text-blue-900 dark:text-blue-200 mb-4">Comentarios</h2>
+    <p class="text-sm text-green-500">Livewire funciona</p>
+    <button wire:click="$refresh">Refrescar</button>
+
 
     @forelse($messages as $index => $message)
         <div wire:key="mensaje-{{ $message->id }}">
@@ -7,14 +10,14 @@
                 <div x-show="showAll || {{ $index }} < 4" class="mb-6 flex justify-end">
                     <div class="p-4 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-100 rounded-lg shadow-sm transition max-w-xs break-words whitespace-normal">
                         <p class="text-sm mb-1 text-right">Tú</p>
-                        <p class="text-right break-words whitespace-normal">{{ $message->body }}</p>
+                        <p class="text-right">{{ $message->body }}</p>
                     </div>
                 </div>
             @else
                 <div x-show="showAll || {{ $index }} < 4" class="mb-6 flex justify-start">
                     <div class="p-4 bg-gray-50 dark:bg-gray-700 text-gray-800 dark:text-gray-100 border border-gray-200 dark:border-gray-600 rounded-lg shadow-sm transition max-w-xs break-words whitespace-normal">
                         <p class="text-sm mb-1">{{ $message->user->name }} dijo:</p>
-                        <p class="break-words whitespace-normal">{{ $message->body }}</p>
+                        <p>{{ $message->body }}</p>
                     </div>
                 </div>
             @endif
@@ -41,8 +44,8 @@
 
         @auth
             <form wire:submit.prevent="submit" class="space-y-4">
-                <textarea wire:model="body" rows="3"
-                    class="w-full border border-gray-300 dark:border-gray-600 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-400 dark:focus:ring-blue-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200"
+                <textarea wire:model.defer="body" rows="3"
+                    class="w-full border border-gray-300 dark:border-gray-600 rounded-lg p-3 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200"
                     placeholder="Escribe tu comentario aquí..."></textarea>
 
                 @error('body')
@@ -64,7 +67,6 @@
         @endauth
     </div>
 
-    <!-- Script para hacer scroll al final cuando se comenta -->
     <script>
         Livewire.on('scrollToBottom', () => {
             setTimeout(() => {

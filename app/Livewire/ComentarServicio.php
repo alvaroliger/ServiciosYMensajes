@@ -18,21 +18,17 @@ class ComentarServicio extends Component
 
         $this->service->messages()->create([
             'user_id' => auth()->id(),
-            'service_id' => $this->service->id,
             'body' => $this->body,
         ]);
 
-        $this->reset('body');
-        $this->service->load('messages.user');
-
-        $this->dispatch('$refresh');
-        $this->dispatch('scrollToBottom');
+        //$this->reset('body');
+        //$this->dispatch('scrollToBottom');
     }
 
     public function render()
     {
         return view('livewire.comentar-servicio', [
-            'messages' => $this->service->messages()->latest()->get(),
+            'messages' => $this->service->messages()->with('user')->latest()->get(),
         ]);
     }
 }
