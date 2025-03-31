@@ -84,7 +84,7 @@
                 </p>
             </div>
 
-            @livewire('comentar-servicio', ['service' => $service])
+            @livewire('comentar-servicio', ['serviceId' => $service->id])
 
             <!-- Comentarios -->
 

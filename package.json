@@ -51,9 +51,6 @@
     "dependencies": {
     
         
-    "@defstudio/vite-livewire-plugin": "github:defstudio/vite-livewire-plugin",
-    
-        
     "chart.js": "^4.4.8",
     
         

@@ -2,33 +2,50 @@
 
 namespace App\Livewire;
 
+use AllowDynamicProperties;
 use Livewire\Component;
 use App\Models\Service;
+use App\Models\Message;
 
 class ComentarServicio extends Component
 {
-    public Service $service;
     public string $body = '';
 
     public function submit()
     {
         $this->validate([
-            'body' => 'required|string|max:1000',
+            'body' => 'required|string|max:500',
         ]);
 
-        $this->service->messages()->create([
-            'user_id' => auth()->id(),
+        // Guarda el mensaje con el service_id
+        $message = Message::create([
             'body' => $this->body,
+            'user_id' => auth()->id(),
+            'service_id' => $this->serviceId, // Asocia el mensaje al servicio actual
         ]);
 
-        //$this->reset('body');
-        //$this->dispatch('scrollToBottom');
+        // Limpia el campo de texto
+        $this->body = '';
+
+        // Emite un evento para actualizar la lista de mensajes
+        $this->emit('messageAdded', $message->id);
+
+        // Opcional: desplázate al final de la página
+        $this->dispatchBrowserEvent('scrollToBottom');
+    }
+    public $serviceId;
+
+    public function mount($serviceId)
+    {
+        $this->serviceId = $serviceId;
     }
 
     public function render()
     {
         return view('livewire.comentar-servicio', [
-            'messages' => $this->service->messages()->with('user')->latest()->get(),
+            'messages' => Message::where('service_id', $this->serviceId)
+                                 ->latest()
+                                 ->get(),
         ]);
     }
 }
