@@ -31,40 +31,13 @@ class ServiceController extends Controller
 
 
 
-    public function show($id)
-    {
-        $service = Service::with(['messages.user', 'user', 'category'])->findOrFail($id);
-        switch ($id) {
-            case 1:
-                return view('services.viajes.paris', compact('service'));
-            case 2:
-                return view('services.viajes.china', compact('service'));
-            case 3:
-                return view('services.viajes.serengeti', compact('service'));
-            case 4:
-                return view('services.viajes.italia', compact('service'));
-            case 5:
-                return view('services.viajes.machupicchu', compact('service'));
-            case 6:
-                return view('services.viajes.egipto', compact('service'));
-            case 7:
-                return view('services.viajes.islandia', compact('service'));
-            case 8:
-                return view('services.viajes.colombia', compact('service'));
-            case 9:
-                return view('services.viajes.mexico', compact('service'));
-            case 10:
-                return view('services.viajes.nuevayork', compact('service'));
-            case 11:
-                return view('services.viajes.costarica', compact('service'));
-            case 12:
-                return view('services.viajes.kyoto', compact('service'));
-            case 13:
-                return view('services.viajes.argentina', compact('service'));
-            default:
-                return view('services.show', compact('service'));
+
+        public function show($id)
+        {
+            $service = Service::findOrFail($id);
+            return view('services.show', compact('service'));
         }
-    }
+
 
 
 

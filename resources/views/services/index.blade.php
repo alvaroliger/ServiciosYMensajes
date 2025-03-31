@@ -12,7 +12,7 @@
                 <h1 class="text-3xl font-bold mb-4 text-white">
                     ¿Te gusta viajar? ¡Tenemos variedad!
                 </h1>
-                
+
                 @php
                     $categorias = [
                         'paris',

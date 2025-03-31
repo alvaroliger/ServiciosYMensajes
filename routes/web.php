@@ -15,6 +15,7 @@ Route::middleware(['auth'])->get('/dashboard', function () {
     return view('dashboard', compact('services'));
 })->name('dashboard');
 
+Route::get('/services/{id}', [ServiceController::class, 'show'])->name('services.show');
 // Comentarios: esta es la forma correcta
 Route::post('/messages', [MessageController::class, 'store'])->name('messages.store');
 
