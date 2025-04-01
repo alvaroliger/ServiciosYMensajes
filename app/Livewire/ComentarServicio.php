@@ -11,6 +11,7 @@ use Livewire\Component;
 
 class ComentarServicio extends Component
 {
+
     #[Url]
     public int $serviceId;
 
@@ -18,9 +19,17 @@ class ComentarServicio extends Component
 
     public $messages = [];
 
-    public function mount()
+    protected function loadMessages()
     {
-
+        $this->messages = Message::with(['user', 'reactions'])
+            ->where('service_id', $this->serviceId)
+            ->orderBy('created_at', 'asc')
+            ->get();
+    }
+    public function mount($serviceId)
+    {
+        $this->serviceId = $serviceId;
+        $this->loadMessages();
     }
 
     public function render()
@@ -35,6 +44,7 @@ class ComentarServicio extends Component
 
     public function submit()
     {
+        \Log::info('Prueba de log diario ' . date('Y-m-d H:i:s'));
         $this->validate([
             'body' => 'required|string|min:1|max:500',
         ]);
@@ -48,6 +58,7 @@ class ComentarServicio extends Component
         $this->body = '';
         $this->dispatch('scrollToBottom');
         $this->dispatch('comentarioAgregado');
+        $this->loadMessages();
     }
 
     #[On('reaccionarMensaje')]

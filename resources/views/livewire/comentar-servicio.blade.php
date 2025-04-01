@@ -86,7 +86,7 @@
         <h3 class="text-xl font-semibold mb-2 text-gray-800 dark:text-gray-200">Añade un comentario</h3>
         <!-- Formulario para agregar un nuevo comentario -->
         @auth
-            <form wire:submit.prevent="submit" class="space-y-4">
+            <form wire:click="submit" class="space-y-4">
                 <div>
                     <textarea wire:model.defer="body" id="body" rows="3"
                         class="mt-1 block w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:text-white"
