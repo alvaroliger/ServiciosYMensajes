@@ -36,14 +36,15 @@
                         </div>
 
                         {{-- Reacciones solo para mensajes de otros usuarios --}}
-                        @unless($isOwn)
+                        @unless ($isOwn)
                             <div class="relative group mt-2">
-                                <button class="text-sm text-gray-500 dark:text-gray-400 group-hover:text-blue-500 transition" x-data>
+                                <button
+                                    class="text-sm text-gray-500 dark:text-gray-400 group-hover:text-blue-500 transition"
+                                    x-data>
                                     Reaccionar
                                 </button>
 
-                                <div
-                                    class="absolute z-10 mt-1 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-600 rounded-lg shadow-md p-2 flex gap-2 opacity-0 group-hover:opacity-100 transition duration-200"
+                                <div class="absolute z-10 mt-1 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-600 rounded-lg shadow-md p-2 flex gap-2 opacity-0 group-hover:opacity-100 transition duration-200"
                                     style="top: 100%; left: 0;">
                                     @foreach (['❤️', '😂', '👍'] as $emoji)
                                         <button
@@ -83,31 +84,31 @@
 
     <div class="mt-10">
         <h3 class="text-xl font-semibold mb-2 text-gray-800 dark:text-gray-200">Añade un comentario</h3>
-
+        <!-- Formulario para agregar un nuevo comentario -->
         @auth
             <form wire:submit.prevent="submit" class="space-y-4">
-                <textarea wire:model.defer="body" rows="3"
-                    class="w-full border border-gray-300 dark:border-gray-600 rounded-lg p-3 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200"
-                    placeholder="Escribe tu comentario aquí..."></textarea>
+                <div>
+                    <textarea wire:model.defer="body" id="body" rows="3"
+                        class="mt-1 block w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:text-white"
+                        placeholder="Escribe tu comentario aquí..."></textarea>
+                    @error('body')
+                        <span class="text-sm text-red-500">{{ $message }}</span>
+                    @enderror
+                </div>
 
-                @error('body')
-                    <p class="text-red-600 dark:text-red-400 text-sm">{{ $message }}</p>
-                @enderror
-
-                <button type="submit" id="publicarBtn"
-                    class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg shadow transition"
-                    @click="document.getElementById('publicarBtn').classList.add('animate__animated', 'animate__heartBeat'); setTimeout(() => { document.getElementById('publicarBtn').classList.remove('animate__animated', 'animate__heartBeat'); }, 1000)">
-                    Publicar
-                </button>
+                <div>
+                    <button type="submit"
+                        class="bg-green-600 hover:bg-green-700 text-black font-semibold px-4 py-2 rounded-md shadow-md animate__animated animate__heartBeat animate__delay-1s animate__repeat-1">
+                        Publicar
+                    </button>
+                </div>
             </form>
         @else
-            <p class="text-gray-500 dark:text-gray-400">
-                Debes
-                <a href="{{ route('login') }}" class="text-blue-500 dark:text-blue-400 underline">
-                    iniciar sesión
-                </a> para comentar.
+            <p class="text-gray-600 dark:text-gray-300">
+                Debes <a href="{{ route('login') }}" class="text-blue-600 underline">iniciar sesión</a> para comentar.
             </p>
         @endauth
+
     </div>
 
     @push('scripts')

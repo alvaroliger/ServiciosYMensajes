@@ -14,8 +14,8 @@
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v2m0 14v2m9-9h-2M3 12H1m16.95-7.05l-1.414 1.414
-                                 M6.464 17.95l-1.414 1.414M16.95 20.95l-1.414-1.414
-                                 M6.464 4.05L4.05 6.464" />
+                                         M6.464 17.95l-1.414 1.414M16.95 20.95l-1.414-1.414
+                                         M6.464 4.05L4.05 6.464" />
                     </svg>
                 </template>
                 <template x-if="!darkMode">
@@ -38,108 +38,42 @@
                 </p>
             </div>
 
-            <!-- Carrusel dinámico basado en el ID -->
+            <!-- Carrusel dinámico basado en rutas_fotos -->
             <div x-data="{ current: 1 }" class="max-w-3xl mx-auto mb-10 space-y-4">
                 <div class="w-full h-64 bg-gray-200 dark:bg-gray-700 rounded-md overflow-hidden">
-                    @if ($service->id === 1)
-                        <img x-show="current === 1" src="/images/paris/paris1.jpg" class="w-full h-full object-cover" />
-                        <img x-show="current === 2" src="/images/paris/paris2.jpg" class="w-full h-full object-cover" />
-                        <img x-show="current === 3" src="/images/paris/paris3.jpg" class="w-full h-full object-cover" />
-                        <img x-show="current === 4" src="/images/paris/paris4.jpg" class="w-full h-full object-cover" />
-                        <img x-show="current === 5" src="/images/paris/paris5.jpg" class="w-full h-full object-cover" />
-                    @elseif ($service->id === 2)
-                        <img x-show="current === 1" src="/images/china/china1.jpg" class="w-full h-full object-cover" />
-                        <img x-show="current === 2" src="/images/china/china2.jpg" class="w-full h-full object-cover" />
-                        <img x-show="current === 3" src="/images/china/china3.jpg" class="w-full h-full object-cover" />
-                        <img x-show="current === 4" src="/images/china/china4.jpg" class="w-full h-full object-cover" />
-                        <img x-show="current === 5" src="/images/china/china5.jpg" class="w-full h-full object-cover" />
-                    @elseif ($service->id === 3)
-                        <img x-show="current === 1" src="/images/serengeti/serengeti1.jpg" class="w-full h-full object-cover" />
-                        <img x-show="current === 2" src="/images/serengeti/serengeti2.jpg" class="w-full h-full object-cover" />
-                        <img x-show="current === 3" src="/images/serengeti/serengeti3.jpg" class="w-full h-full object-cover" />
-                        <img x-show="current === 4" src="/images/serengeti/serengeti4.jpg" class="w-full h-full object-cover" />
-                        <img x-show="current === 5" src="/images/serengeti/serengeti5.jpg" class="w-full h-full object-cover" />
-                    @elseif ($service->id === 4)
-                        <img x-show="current === 1" src="/images/toscana/toscana1.jpg" class="w-full h-full object-cover" />
-                        <img x-show="current === 2" src="/images/toscana/toscana2.jpg" class="w-full h-full object-cover" />
-                        <img x-show="current === 3" src="/images/toscana/toscana3.jpg" class="w-full h-full object-cover" />
-                        <img x-show="current === 4" src="/images/toscana/toscana4.jpg" class="w-full h-full object-cover" />
-                        <img x-show="current === 5" src="/images/toscana/toscana5.jpg" class="w-full h-full object-cover" />
-                    @elseif ($service->id === 5)
-                        <img x-show="current === 1" src="/images/machupicchu/machupicchu1.jpg" class="w-full h-full object-cover" />
-                        <img x-show="current === 2" src="/images/machupicchu/machupicchu2.jpg" class="w-full h-full object-cover" />
-                        <img x-show="current === 3" src="/images/machupicchu/machupicchu3.jpg" class="w-full h-full object-cover" />
-                        <img x-show="current === 4" src="/images/machupicchu/machupicchu4.jpg" class="w-full h-full object-cover" />
-                        <img x-show="current === 5" src="/images/machupicchu/machupicchu5.jpg" class="w-full h-full object-cover" />
-                    @elseif ($service->id === 6)
-                        <img x-show="current === 1" src="/images/egipto/egipto1.jpg" class="w-full h-full object-cover" />
-                        <img x-show="current === 2" src="/images/egipto/egipto2.jpg" class="w-full h-full object-cover" />
-                        <img x-show="current === 3" src="/images/egipto/egipto3.jpg" class="w-full h-full object-cover" />
-                        <img x-show="current === 4" src="/images/egipto/egipto4.jpg" class="w-full h-full object-cover" />
-                        <img x-show="current === 5" src="/images/egipto/egipto5.jpg" class="w-full h-full object-cover" />
-                    @elseif ($service->id === 7)
-                        <img x-show="current === 1" src="/images/islandia/islandia1.jpg" class="w-full h-full object-cover" />
-                        <img x-show="current === 2" src="/images/islandia/islandia2.jpg" class="w-full h-full object-cover" />
-                        <img x-show="current === 3" src="/images/islandia/islandia3.jpg" class="w-full h-full object-cover" />
-                        <img x-show="current === 4" src="/images/islandia/islandia4.jpg" class="w-full h-full object-cover" />
-                        <img x-show="current === 5" src="/images/islandia/islandia5.jpg" class="w-full h-full object-cover" />
-                    @elseif ($service->id === 8)
-                        <img x-show="current === 1" src="/images/colombia/colombia1.jpg" class="w-full h-full object-cover" />
-                        <img x-show="current === 2" src="/images/colombia/colombia2.jpg" class="w-full h-full object-cover" />
-                        <img x-show="current === 3" src="/images/colombia/colombia3.jpg" class="w-full h-full object-cover" />
-                        <img x-show="current === 4" src="/images/colombia/colombia4.jpg" class="w-full h-full object-cover" />
-                        <img x-show="current === 5" src="/images/colombia/colombia5.jpg" class="w-full h-full object-cover" />
-                    @elseif ($service->id === 9)
-                        <img x-show="current === 1" src="/images/mexico/mexico1.jpg" class="w-full h-full object-cover" />
-                        <img x-show="current === 2" src="/images/mexico/mexico2.jpg" class="w-full h-full object-cover" />
-                        <img x-show="current === 3" src="/images/mexico/mexico3.jpg" class="w-full h-full object-cover" />
-                        <img x-show="current === 4" src="/images/mexico/mexico4.jpg" class="w-full h-full object-cover" />
-                        <img x-show="current === 5" src="/images/mexico/mexico5.jpg" class="w-full h-full object-cover" />
-                    @elseif ($service->id === 10)
-                        <img x-show="current === 1" src="/images/nuevayork/nuevayork1.jpg" class="w-full h-full object-cover" />
-                        <img x-show="current === 2" src="/images/nuevayork/nuevayork2.jpg" class="w-full h-full object-cover" />
-                        <img x-show="current === 3" src="/images/nuevayork/nuevayork3.jpg" class="w-full h-full object-cover" />
-                        <img x-show="current === 4" src="/images/nuevayork/nuevayork4.jpg" class="w-full h-full object-cover" />
-                        <img x-show="current === 5" src="/images/nuevayork/nuevayork5.jpg" class="w-full h-full object-cover" />
-                    @elseif ($service->id === 11)
-                        <img x-show="current === 1" src="/images/costarica/costarica1.jpg" class="w-full h-full object-cover" />
-                        <img x-show="current === 2" src="/images/costarica/costarica2.jpg" class="w-full h-full object-cover" />
-                        <img x-show="current === 3" src="/images/costarica/costarica3.jpg" class="w-full h-full object-cover" />
-                        <img x-show="current === 4" src="/images/costarica/costarica4.jpg" class="w-full h-full object-cover" />
-                        <img x-show="current === 5" src="/images/costarica/costarica5.jpg" class="w-full h-full object-cover" />
-                    @elseif ($service->id === 12)
-                        <img x-show="current === 1" src="/images/kyoto/kyoto1.jpg" class="w-full h-full object-cover" />
-                        <img x-show="current === 2" src="/images/kyoto/kyoto2.jpg" class="w-full h-full object-cover" />
-                        <img x-show="current === 3" src="/images/kyoto/kyoto3.jpg" class="w-full h-full object-cover" />
-                        <img x-show="current === 4" src="/images/kyoto/kyoto4.jpg" class="w-full h-full object-cover" />
-                        <img x-show="current === 5" src="/images/kyoto/kyoto5.jpg" class="w-full h-full object-cover" />
-                    @elseif ($service->id === 13)
-                        <img x-show="current === 1" src="/images/argentina/argentina1.jpg" class="w-full h-full object-cover" />
-                        <img x-show="current === 2" src="/images/argentina/argentina2.jpg" class="w-full h-full object-cover" />
-                        <img x-show="current === 3" src="/images/argentina/argentina3.jpg" class="w-full h-full object-cover" />
-                        <img x-show="current === 4" src="/images/argentina/argentina4.jpg" class="w-full h-full object-cover" />
-                        <img x-show="current === 5" src="/images/argentina/argentina5.jpg" class="w-full h-full object-cover" />
+                    @if ($fotos && count($fotos) > 0)
+                        @foreach ($fotos as $index => $foto)
+                            <img x-show="current === {{ $index + 1 }}" src="{{ asset($foto) }}"
+                                class="w-full h-full object-cover transition-all duration-300 ease-in-out" />
+                        @endforeach
+                    @else
+                        <p class="text-center text-gray-500 dark:text-gray-400">
+                            No hay imágenes disponibles para este servicio.
+                        </p>
                     @endif
                 </div>
 
-                <div class="flex justify-between">
-                    <button @click="current = (current === 1) ? 5 : (current - 1)"
-                        class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition">
-                        Anterior
-                    </button>
-                    <button @click="current = (current === 5) ? 1 : (current + 1)"
-                        class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition">
-                        Siguiente
-                    </button>
-                </div>
+                @if (count($fotos) > 1)
+                    <div class="flex justify-between">
+                        <button @click="current = (current === 1) ? {{ count($fotos) }} : (current - 1)"
+                            class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition">
+                            Anterior
+                        </button>
+                        <button @click="current = (current === {{ count($fotos) }}) ? 1 : (current + 1)"
+                            class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition">
+                            Siguiente
+                        </button>
+                    </div>
 
-                <div class="flex justify-center gap-2">
-                    <template x-for="i in 5" :key="i">
-                        <div @click="current = i" :class="current === i ? 'bg-blue-600' : 'bg-gray-300 dark:bg-gray-500'"
-                            class="w-3 h-3 rounded-full border border-gray-400 cursor-pointer">
-                        </div>
-                    </template>
-                </div>
+                    <div class="flex justify-center gap-2">
+                        @foreach ($fotos as $index => $foto)
+                            <div @click="current = {{ $index + 1 }}"
+                                :class="current === {{ $index + 1 }} ? 'bg-blue-600' : 'bg-gray-300 dark:bg-gray-500'"
+                                class="w-3 h-3 rounded-full border border-gray-400 cursor-pointer">
+                            </div>
+                        @endforeach
+                    </div>
+                @endif
             </div>
 
             <!-- Detalles -->
@@ -156,6 +90,7 @@
                 </p>
             </div>
 
+            <livewire:comentar-servicio :service-id="$service->id" />
             @livewire('comentar-servicio', ['serviceId' => $service->id])
 
             <!-- CTA final -->

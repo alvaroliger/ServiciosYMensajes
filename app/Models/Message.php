@@ -27,9 +27,9 @@ class Message extends Model
     }
 
     public function reactions()
-{
-    return $this->hasMany(Reaction::class);
-}
+    {
+        return $this->hasMany(Reaction::class);
+    }
 
     public function conversation()
     {

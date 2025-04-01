@@ -9,8 +9,7 @@ class Conversation extends Model
 {
     /** @use HasFactory<\Database\Factories\ConversationFactory> */
     use HasFactory;
-
-    // Modelo Conversation
+    
     public function service()
     {
         return $this->belongsTo(Service::class);
@@ -21,8 +20,6 @@ class Conversation extends Model
     }
     public function participants()
     {
-        return $this->belongsToMany(User::class, 'conversation');
+        return $this->belongsToMany(User::class, 'conversation_user');
     }
-
-    
 }
