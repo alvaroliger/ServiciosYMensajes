@@ -11,16 +11,18 @@ use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
+use App\Models\Reaction;
 
 class User extends Authenticatable implements HasMedia
 {
     use HasApiTokens;
     use InteractsWithMedia;
 
-    public function getAvatarUrlAttribute()
-    {                                                                            // TODO
-        return $this->getFirstMediaUrl('avatar') ?: asset('RUTAAVATAR');
+    public function reactions()
+    {
+        return $this->hasMany(Reaction::class);
     }
+
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory;
     use HasProfilePhoto;

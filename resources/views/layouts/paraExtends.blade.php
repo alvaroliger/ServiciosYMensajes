@@ -1,46 +1,51 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
-    <head>
-        @livewireStyles
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+    @livewireStyles
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <!-- Fuentes -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+    <title>{{ config('app.name', 'Laravel') }}</title>
 
-        <!-- Scripts y estilos (Tailwind, etc.) -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-    </head>
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
-    <!-- Fondo degradado sin foto de París -->
-    <body class="font-sans antialiased w-screen min-h-screen bg-gradient-to-b from-white to-gray-100 flex flex-col">
-        @livewireScripts
-        <!-- Mensaje banner Jetstream (si lo usas) -->
-        <x-banner />
+    <!-- Scripts y estilos (Tailwind, etc.) -->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+</head>
 
-        <!-- Menú de navegación (Jetstream Livewire) -->
-        @livewire('navigation-menu')
+<!-- Fondo degradado sin foto de París -->
 
-        <!-- Encabezado de página (opcional) -->
-        @if (isset($header))
-            <header class="bg-white shadow">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                    {{ $header }}
-                </div>
-            </header>
-        @endif
+<body class="font-sans antialiased w-screen min-h-screen bg-gradient-to-b from-white to-gray-100 flex flex-col">
+    @livewireScripts
+    <!-- Mensaje banner Jetstream (si lo usas) -->
+    <x-banner />
 
-        <!-- Contenido principal -->
-        <main class="flex-grow">
-            @yield('content')
-        </main>
+    <!-- Menú de navegación (Jetstream Livewire) -->
+    @livewire('navigation-menu')
 
-        @stack('modals')
-    </body>
+    <!-- Encabezado de página (opcional) -->
+    @if (isset($header))
+        <header class="bg-white shadow">
+            <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                {{ $header }}
+            </div>
+        </header>
+    @endif
+
+    <!-- Contenido principal -->
+    <main class="flex-grow">
+        @yield('content')
+    </main>
+
+    @stack('modals')
+    @stack('scripts')
+</body>
+
 </html>

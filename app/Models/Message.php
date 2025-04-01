@@ -26,6 +26,11 @@ class Message extends Model
         return $this->belongsTo(Service::class);
     }
 
+    public function reactions()
+{
+    return $this->hasMany(Reaction::class);
+}
+
     public function conversation()
     {
         return $this->belongsTo(Conversation::class);

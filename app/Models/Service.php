@@ -23,11 +23,6 @@ class Service extends Model
         return $this->hasMany(Conversation::class);
     }
 
-    public function images()
-    {
-        return $this->hasMany(ServiceImage::class);
-    }
-
     public function user()
     {
         return $this->belongsTo(User::class);
