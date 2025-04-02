@@ -98,7 +98,7 @@
 
                 <div>
                     <button type="submit"
-                        class="bg-green-600 hover:bg-green-700 text-black font-semibold px-4 py-2 rounded-md shadow-md animate__animated animate__heartBeat animate__delay-1s animate__repeat-1">
+                        class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded-md shadow-md animate__animated animate__heartBeat animate__delay-1s animate__repeat-1">
                         Publicar
                     </button>
                 </div>

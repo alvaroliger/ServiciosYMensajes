@@ -33,7 +33,42 @@ class ServiceController extends Controller
             ->with('success', 'Comentario publicado con éxito.');
     }
 
-    public function show($id)
+    /*
+    public function comentar(Request $request, $id)
+    {
+        $request->validate([
+            'body' => 'required|string|max:1000',
+        ]);
+
+        \App\Models\Message::create([
+            'user_id' => auth()->id(),
+            'service_id' => $id,
+            'body' => $request->body,
+            'conversation_id' => null
+        ]);
+
+        return redirect()->route('services.showSinC', $id)
+            ->with('success', 'Comentario publicado con éxito.');
+    }
+
+    public function showSinC($id)
+    {
+        $service = Service::findOrFail($id);
+
+        $fotos = [];
+
+        if (!empty($service->rutas_fotos)) {
+            $decoded = json_decode($service->rutas_fotos, true);
+            if (json_last_error() === JSON_ERROR_NONE) {
+                $fotos = $decoded;
+            }
+        }
+
+        return view('services.showSinC', compact('service', 'fotos'));
+    }
+        */
+
+        public function show($id)
     {
         $service = Service::findOrFail($id);
 
