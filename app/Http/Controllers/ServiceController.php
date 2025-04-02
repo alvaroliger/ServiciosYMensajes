@@ -33,6 +33,22 @@ class ServiceController extends Controller
             ->with('success', 'Comentario publicado con éxito.');
     }
 
+    public function show($id)
+    {
+        $service = Service::findOrFail($id);
+
+        $fotos = [];
+
+        if (!empty($service->rutas_fotos)) {
+            $decoded = json_decode($service->rutas_fotos, true);
+            if (json_last_error() === JSON_ERROR_NONE) {
+                $fotos = $decoded;
+            }
+        }
+
+        return view('services.show', compact('service', 'fotos'));
+    }
+
     /*
     public function comentar(Request $request, $id)
     {
@@ -67,22 +83,6 @@ class ServiceController extends Controller
         return view('services.showSinC', compact('service', 'fotos'));
     }
         */
-
-        public function show($id)
-    {
-        $service = Service::findOrFail($id);
-
-        $fotos = [];
-
-        if (!empty($service->rutas_fotos)) {
-            $decoded = json_decode($service->rutas_fotos, true);
-            if (json_last_error() === JSON_ERROR_NONE) {
-                $fotos = $decoded;
-            }
-        }
-
-        return view('services.show', compact('service', 'fotos'));
-    }
 
     public function edit(Service $service)
     {
