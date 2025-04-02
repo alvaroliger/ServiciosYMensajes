@@ -29,6 +29,7 @@ Route::middleware('auth:sanctum')->group(function () {
 Route::middleware(['auth'])->group(function () {
     Route::resource('services', ServiceController::class);
 });
-Route::view('/privacy-policy', 'privacy-policy');
-Route::view('/terms-of-service', 'terms-of-service');
+
+Route::view('/politica-de-privacidad', 'privacy-policy');
+Route::view('/terminos-de-servicio', 'terms-of-service');
 
