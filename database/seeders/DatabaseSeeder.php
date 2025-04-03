@@ -1,11 +1,11 @@
 <?php
 
-namespace database\Seeders;
+namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use database\Seeders\CategorySeeder;
-use database\Seeders\ServiceSeeder;
-use database\Seeders\UserSeeder;
+use Database\Seeders\CategorySeeder;
+use Database\Seeders\ServiceSeeder;
+use Database\Seeders\UserSeeder;
 
 class DatabaseSeeder extends Seeder
 {
