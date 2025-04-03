@@ -1,6 +1,29 @@
 <?php
 
 return [
+'providers' => [
+
+    App\Providers\EventServiceProvider::class,
+    Illuminate\Filesystem\FilesystemServiceProvider::class,
+    Illuminate\Foundation\Providers\FoundationServiceProvider::class,
+    Illuminate\View\ViewServiceProvider::class,
+    Illuminate\Session\SessionServiceProvider::class,
+    Illuminate\Translation\TranslationServiceProvider::class,
+    Illuminate\Database\DatabaseServiceProvider::class,
+    Illuminate\Routing\RoutingServiceProvider::class,
+    Illuminate\Auth\AuthServiceProvider::class,
+    Illuminate\Bus\BusServiceProvider::class,
+    Illuminate\Cache\CacheServiceProvider::class,
+    Illuminate\Cookie\CookieServiceProvider::class,
+    Illuminate\Encryption\EncryptionServiceProvider::class,
+    Illuminate\Foundation\Providers\ConsoleSupportServiceProvider::class,
+    Illuminate\Mail\MailServiceProvider::class,
+    Illuminate\Queue\QueueServiceProvider::class,
+    Illuminate\Validation\ValidationServiceProvider::class,
+    Illuminate\Notifications\NotificationServiceProvider::class,
+    Illuminate\Hashing\HashServiceProvider::class,
+
+],
 
     /*
     |--------------------------------------------------------------------------

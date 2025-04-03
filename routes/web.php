@@ -4,6 +4,7 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\Api\ConversationController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TikTokController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -28,6 +29,11 @@ Route::middleware('auth:sanctum')->group(function () {
 // Rutas protegidas para servicios (crea, edita, elimina, etc.)
 Route::middleware(['auth'])->group(function () {
     Route::resource('services', ServiceController::class);
+});
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/user/profile/tiktok', [TikTokController::class, 'redirigirATiktok'])->name('tiktok.redirigir');
+    Route::get('/user/profile/tiktok/callback', [TikTokController::class, 'vincular'])->name('tiktok.callback');
 });
 
 Route::view('/politica-de-privacidad', 'privacy-policy');

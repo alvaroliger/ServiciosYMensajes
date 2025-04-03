@@ -40,6 +40,12 @@
                     @livewire('profile.delete-user-form')
                 </div>
             @endif
+            <x-section-border />
+
+            <div class="mt-10 sm:mt-0">
+                @livewire('profile.conectar-cuenta-tiktok')
+            </div>
         </div>
     </div>
 </x-app-layout>
+

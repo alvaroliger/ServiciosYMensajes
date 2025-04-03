@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Laravel\Socialite\Facades\Socialite;
@@ -32,3 +31,4 @@ class TikTokController extends Controller
         return redirect()->route('dashboard')->with('success', 'Cuenta TikTok vinculada correctamente.');
     }
 }
+
