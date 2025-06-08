@@ -91,7 +91,6 @@
             </div>
 
             <livewire:comentar-servicio :service-id="$service->id" />
-            @livewire('comentar-servicio', ['serviceId' => $service->id])
 
             <!-- CTA final -->
             <div class="mt-8 py-6 bg-blue-600 rounded-lg text-center text-white">
